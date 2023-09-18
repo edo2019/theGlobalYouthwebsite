@@ -1,84 +1,32 @@
 
-var thankam = angular.module('thankam',['ui.router']);
-var url = 'http://localhost/learning/le-admin/';
-thankam.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider){
-    $urlRouterProvider.otherwise('/');
+      $(document).ready(function(){
+        $('.menu-hamburger').click(function(){
+          $('.menu-hamburger').toggleClass('active')
+          $('.menu').toggleClass('active')
+        });
+      });
 
-    $stateProvider
-        .state('home',{
-            url:'/',
-            templateUrl: 'template/home.html'
+$('.counting').each(function () {
+  var $this = $(this),
+    countTo = $this.attr('data-count');
 
-        })
-     $stateProvider
-        .state('about',{
-            url:'/about',
-            templateUrl: 'template/about.html'
+  $({ countNum: $this.text() }).animate({
+    countNum: countTo
+  },
 
-        })
-      $stateProvider
-        .state('support',{
-            url:'/support',
-            templateUrl: 'template/support.html'
+    {
 
-        })
-       $stateProvider
-        .state('gallery',{
-            url:'/gallery',
-            templateUrl: 'template/gallery.html'
+      duration: 3000,
+      easing: 'linear',
+      step: function () {
+        $this.text(Math.floor(this.countNum));
+      },
+      complete: function () {
+        $this.text(this.countNum);
+        //alert('finished');
+      }
 
-        })
-       $stateProvider
-        .state('testimony',{
-            url:'/testimony',
-            templateUrl: 'template/testimony.html'
+    });
 
-        })
-       $stateProvider
-        .state('contact',{
-            url:'/contact',
-            templateUrl: 'template/contact.html'
-
-        })
-       
-       $stateProvider
-        .state('news',{
-            url:'/news',
-            templateUrl: 'template/news.html'
-
-        })
-       $stateProvider
-        .state('payment',{
-            url:'/payment',
-            templateUrl: 'template/payment.html'
-
-        })
-}])
-
-
-
-thankam.controller('homeCtrl', function($scope, $http){
-	
-})
-
-
-$(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide"
-  });
 });
 
-
-
-function changeSelect(i){
-  $(".mom").removeClass('sel'+i);
-  $("#mm"+i).addClass('sel'+i);
-}
-  function showSM(){
-    $("#sm-menu").show(500);
-  }
-
-
-  function hideSM(){
-    $("#sm-menu").hide();
-  }
