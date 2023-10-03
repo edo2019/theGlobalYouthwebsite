@@ -40,6 +40,20 @@ a:hover {
       max-width: 100%;
       width: 100%; } }
 
+
+      .custom-orange-button {
+        background-color: #fd580b;
+        border-color: #fd580b;
+        color: white;
+    }
+
+    .custom-orange-button:hover {
+        background-color: #e54700;
+        border-color: #e54700;
+        color: white;
+    }
+    
+
 /* ================================ Header CSS =============================== */
 header .my-nav {
   position: relative;
